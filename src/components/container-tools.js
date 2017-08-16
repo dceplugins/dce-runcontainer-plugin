@@ -40,7 +40,7 @@ function genSpec(c) {
       "AutoRemove": false,
       "VolumeDriver": "",
       "VolumesFrom": null,
-      "CapAdd": c.cap_add.split(','),
+      "CapAdd": c.cap_add ? c.cap_add.split(',') : [],
       "Dns": [],
       "DnsOptions": [],
       "DnsSearch": [],

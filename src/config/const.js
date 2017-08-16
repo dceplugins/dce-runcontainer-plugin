@@ -18,10 +18,10 @@ const defaultUrl = 'http://192.168.100.30';
 let currentUrl = defaultUrl;
 if (process.env.API_URL) {
   currentUrl = process.env.API_URL;
-  // API_URL 不能是 /, 否则最终 XHR 的请求 url 就变成了 http://api/networks 这样
-  if (process.env.API_URL === '/') {
-    currentUrl = '.';
-  }
+  // // API_URL 不能是 /, 否则最终 XHR 的请求 url 就变成了 http://api/networks 这样
+  // if (process.env.API_URL === '/') {
+  //   currentUrl = '.';
+  // }
 }
 Vue.prototype.API_URL = currentUrl;
 // Vue.prototype.storage = storage;

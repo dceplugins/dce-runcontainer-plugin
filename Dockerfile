@@ -1,6 +1,8 @@
 FROM nginx:alpine
 
-COPY dist/* /usr/share/nginx/html/
+COPY nginx.conf /etc/nginx/nginx.conf
+
+COPY dist /usr/share/nginx/html
 COPY plugin.json /usr/share/nginx/html/
 
 LABEL maintainer="Revol.Cai" \

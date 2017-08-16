@@ -124,6 +124,8 @@ export default {
       yaml: `# 下面是容器的高级配置，格式等价于 Docker Engine API 的 Container Spec 的 YAML 形式，注意：这个不是 docker-compose
 # 在这里描述的同名参数会覆盖上面表单填写的参数
 # 容器参数
+#Hostname: "" # 对应表单中的 Hostname
+#Image: "daocloud.io/daocloud/dao-2048" # 对应表单中的镜像
 #Cmd: ""
 #Entrypoint: ""
 #CpuQuota: 90000 # CPU限制，0.9核
@@ -148,6 +150,14 @@ HostConfig:
 #  RestartPolicy:
 #    Name: "unless-stopped"
 #    MaximumRetryCount: 10
+#  CapAdd: # 对应表单中的 CAP_ADD
+#  - IPC_OWNER
+#  NetworkMode: 0LAN # 网络驱动，填写 bridge，host 或者与网络名称相同
+#NetworkingConfig:
+#  EndpointsConfig:
+#    0LAN: # 网络名称或ID
+#      IPAMConfig:
+#        IPv4Address: 10.10.7.11 # 对应表单中的IP
 `,
       // codeMirror 配置
       codeMirrorOptions: {
