@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <hello></hello>
+    <index></index>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Index from './components/index'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Index
   }
 }
 </script>

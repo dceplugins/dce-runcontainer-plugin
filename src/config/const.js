@@ -1,26 +1,17 @@
 /* eslint-disable import/no-mutable-exports */
 import Vue from 'vue';
 import axios from 'axios';
-import Noty from 'noty';
-import 'noty/lib/noty.css';
-
-Noty.overrideDefaults({
-  layout: 'topCenter',
-  theme: 'relax',
-  type: 'success',
-  progressBar: false,
-  closeWith: ['click', 'button'],
-  animation: {
-    open: 'animated fadeInDown',
-    close: 'animated fadeOutUp',
-  },
-  timeout: 5000,
-});
-
-window.Noty = Noty;
+import alertify from 'alertifyjs'
+import 'alertifyjs/build/css/alertify.min.css'
+import './alertify.css'
 
 // axios
 Vue.prototype.$http = axios;
+
+alertify.set('notifier','position', 'top-center');
+alertify.set('notifier','delay', 100);
+
+window.alertify = alertify;
 
 // API_URL
 const defaultUrl = 'http://192.168.100.30';
@@ -38,4 +29,5 @@ Vue.prototype.API_URL = currentUrl;
 export {
   axios as $http,
   currentUrl as API_URL,
+  alertify
 };

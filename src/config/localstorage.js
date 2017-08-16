@@ -13,27 +13,35 @@ const AUTH_TOKEN = formatKey('token');
 const USER_NAME = formatKey('username');
 const Tenant = formatKey('tenant');
 
+function getStore(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+
+function setStore(key, value) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 export default {
   // token
   get token() {
-    return localStorage.getItem(AUTH_TOKEN);
+    return getStore(AUTH_TOKEN);
   },
   set token(t) {
-    localStorage.setItem(AUTH_TOKEN, t);
+    setStore(AUTH_TOKEN, t);
   },
   // tenant
   get tenant() {
-    return localStorage.getItem(Tenant);
+    return getStore(Tenant);
   },
   set tenant(t) {
-    localStorage.setItem(Tenant, t);
+    setStore(Tenant, t);
   },
   // userName
   get userName() {
-    return localStorage.getItem(USER_NAME);
+    return getStore(USER_NAME);
   },
   set userName(n) {
-    localStorage.setItem(USER_NAME, n);
+    setStore(USER_NAME, n);
   },
   clear: () => {
     localStorage.clear();
