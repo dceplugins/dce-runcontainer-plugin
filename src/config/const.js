@@ -9,7 +9,7 @@ import './alertify.css'
 Vue.prototype.$http = axios;
 
 alertify.set('notifier','position', 'top-center');
-alertify.set('notifier','delay', 100);
+alertify.set('notifier','delay', 5);
 
 window.alertify = alertify;
 

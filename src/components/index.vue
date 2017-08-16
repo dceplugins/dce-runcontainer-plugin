@@ -191,7 +191,7 @@ HostConfig:
           window.top.location.href = `/#/container/detail/${res.Id}`;
         })
         .catch(err => {
-          this.errorMsg = `操作失败：${err.status} ${err.statusText}: ${err.data}`;
+          this.errorMsg = `操作失败：${err.status} ${err.statusText}: ${err.data.message || err.data}`;
           alertify.error(this.errorMsg);
         });
       // console.log('start', this.start)
