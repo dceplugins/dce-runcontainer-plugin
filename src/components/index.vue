@@ -138,7 +138,7 @@ Labels: # 容器标签
 
 # 容器 HOST 参数
 HostConfig:
-  Privileged: false
+#  Privileged: false
   LogConfig:
     Type: "json-file"
     Config:
