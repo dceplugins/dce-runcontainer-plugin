@@ -49,10 +49,14 @@
         </div>
       </dao-setting-section>
       <dao-setting-section>
-        <div slot="label">CAP_ADD</div>
+        <div slot="label">Privileged</div>
         <div slot="content">
-          <dao-input v-model="container.cap_add" required placeholder="如：IPC_OWNER,SYS_ADMIN (逗号隔开)"></dao-input>
-          <div class="helper-text">分配给容器的系统特权，多个用逗号隔开</div>
+          <dao-switch :option="{ on: '是', off: '否' }"
+                      :with-notice="true"
+                      v-model="container.privileged"
+                      :disabled="false">
+          </dao-switch>
+          <div class="helper-text">是否开启特权模式</div>
         </div>
       </dao-setting-section>
       <dao-setting-section>
@@ -119,7 +123,7 @@ export default {
         hostname: '',
         network: '0LAN',
         ip: '',
-        cap_add: '',
+        privileged: false,
       },
       yaml: `# 下面是容器的高级配置，格式等价于 Docker Engine API 的 Container Spec 的 YAML 形式，注意：这个不是 docker-compose
 # 在这里描述的同名参数会覆盖上面表单填写的参数
@@ -138,7 +142,7 @@ Labels: # 容器标签
 
 # 容器 HOST 参数
 HostConfig:
-#  Privileged: false
+#  Privileged: false # 是否开启特权模式
   LogConfig:
     Type: "json-file"
     Config:
