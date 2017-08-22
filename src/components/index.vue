@@ -148,8 +148,8 @@ HostConfig:
     Config:
       max-file: "2"
       max-size: "100m"
-#  Binds: # 主机目录挂载, 格式：[存储卷名|主机目录]:容器目录[:读写权限]
-#  - /tmp:/tmp # 读写
+  Binds: # 主机目录挂载, 格式：[存储卷名|主机目录]:容器目录[:读写权限]
+  - /dbdate/<用户名>/<应用名>:/home # 读写
 #  - /mnt:/mnt:ro # 只读
 #  RestartPolicy:
 #    Name: "unless-stopped"
